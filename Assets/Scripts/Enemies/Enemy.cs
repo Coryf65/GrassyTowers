@@ -9,7 +9,6 @@ namespace Cory.TowerGame.Enemies
     {
         // reference our Scriptable Object
         [SerializeField] private EnemyData enemyData = null;
-        [SerializeField] private Node startingNode = null;
 
         private Node targetNode;
         private Vector3 currentDirection;
@@ -19,10 +18,6 @@ namespace Cory.TowerGame.Enemies
         // getter
         public EnemyData EnemyData => enemyData;
 
-        public void Start()
-        {
-            targetNode = startingNode;
-        }
 
         public void Update()
         {
@@ -43,7 +38,7 @@ namespace Cory.TowerGame.Enemies
             }
         }
 
-        private void SetNode(Node nextNode)
+        public void SetNode(Node nextNode)
         {
             targetNode = nextNode;
 
@@ -57,5 +52,6 @@ namespace Cory.TowerGame.Enemies
                 transform.rotation = Quaternion.LookRotation(currentDirection);
             }
         }
+
     }
 }
