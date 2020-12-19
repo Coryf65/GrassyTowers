@@ -16,6 +16,8 @@ namespace Cory.TowerGame.Enemies
 
         private const float MinDistance = 0.1f;
 
+        // getter
+        public EnemyData EnemyData => enemyData;
 
         public void Start()
         {
