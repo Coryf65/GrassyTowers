@@ -35,7 +35,7 @@ namespace Cory.TowerGame.Targeting
                 FindTarget();
             }
 
-            if (Target = null) return;
+            if (Target == null) { return; }
 
             // aim at the target
             transform.LookAt(Target.transform);
