@@ -16,7 +16,7 @@ namespace Cory.TowerGame.Enemies
             get 
             {
                 // check if we are at the last node
-                if (nodes.Length == 0) return null;
+                if (nodes.Length == 0) { return null; }
 
                 Node nextNode = nodes[nextNodeIndex];
 

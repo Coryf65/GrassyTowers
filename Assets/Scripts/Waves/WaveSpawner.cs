@@ -25,7 +25,7 @@ namespace Cory.TowerGame.Waves
 
         private void Update()
         {
-            if (!isSpawning) return;
+            if (!isSpawning) { return; }
 
             timeUntilNextSpawn -= Time.deltaTime;
 
@@ -37,7 +37,7 @@ namespace Cory.TowerGame.Waves
 
         public void StartWave(int waveIndex)
         {
-            if (waveIndex >= waves.Length) return;
+            if (waveIndex >= waves.Length) { return; }
 
             currentWave = waves[waveIndex];
 
@@ -52,7 +52,7 @@ namespace Cory.TowerGame.Waves
 
         private void SpawnNextEnemy()
         {
-            if (remainingSpawns.Count == 0) return;
+            if (remainingSpawns.Count == 0) { return; }
 
             // spawn an enemy towards our Z coordinate
             Enemy enemy = Instantiate(remainingSpawns.Dequeue(), transform.position, transform.rotation);
