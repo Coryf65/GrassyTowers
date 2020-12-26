@@ -12,12 +12,19 @@ namespace Cory.TowerGame.Enemies
 
         private Node targetNode;
         private Vector3 currentDirection;
-
+        private int health;
         private const float MinDistance = 0.1f;
 
         // getter
         public EnemyData EnemyData => enemyData;
 
+        // Event
+        public static event Action<EnemyData> OnKilled;
+
+        private void Start()
+        {
+            health = enemyData.Health;
+        }
 
         public void Update()
         {
@@ -25,6 +32,19 @@ namespace Cory.TowerGame.Enemies
 
             MoveToTarget();
 
+        }
+
+        public void DealDamage(int damage)
+        {
+            // shorthand way of handling if else max damage
+            health = Mathf.Max(health - damage, 0);
+
+            if (health == 0)
+            {
+                OnKilled?.Invoke(enemyData);
+
+                Destroy(gameObject);
+            }
         }
 
         private void MoveToTarget()

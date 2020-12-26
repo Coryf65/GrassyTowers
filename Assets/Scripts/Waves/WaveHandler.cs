@@ -63,12 +63,14 @@ namespace Cory.TowerGame.Waves
         private void OnEnable()
         {
             WaveDestination.OnEnemyReachedEnd += HandleEnemyKilled;
+            Enemy.OnKilled += HandleEnemyKilled;
         }
 
         // UnSubscribe to our event
         private void OnDisable()
         {
             WaveDestination.OnEnemyReachedEnd -= HandleEnemyKilled;
+            Enemy.OnKilled -= HandleEnemyKilled;
         }
 
         // Event Handler
