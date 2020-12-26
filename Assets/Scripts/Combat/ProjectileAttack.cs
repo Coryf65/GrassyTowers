@@ -8,7 +8,7 @@ namespace Cory.TowerGame.Combat
 {
     public class ProjectileAttack : MonoBehaviour
     {
-        [Header("Combat Settings")]
+        [Header("Projectile Settings")]
         [SerializeField] private float fireRate = 0.5f;
         [SerializeField] private Transform spawnPoint = null;
         [SerializeField] private Rigidbody projectilePrefab = null;
