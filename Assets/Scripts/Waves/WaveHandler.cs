@@ -19,6 +19,7 @@ namespace Cory.TowerGame.Waves
 
         private readonly Dictionary<EnemyData, int> enemiesToKill = new Dictionary<EnemyData, int>();
 
+        public static event Action OnPlayerWin;
 
         private void Update()
         {
@@ -98,6 +99,7 @@ namespace Cory.TowerGame.Waves
                 if (currentWave == numberOfWaves)
                 {
                     // Player WINS!
+                    OnPlayerWin?.Invoke();
                     return;
                 }
 
