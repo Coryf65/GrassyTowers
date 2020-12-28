@@ -16,10 +16,10 @@ namespace Cory.TowerGame.Shop
         [Tooltip("The Icon Image for the Tower.")]
         [SerializeField] private Image towerIconImage = null;
 
-        private bool isDragging;
         private Camera mainCamera;
         private TowerData towerData;
         private TowerShop towerShop;
+        private TowerPreview previewInstance;
 
         private void Start() => mainCamera = Camera.main;
 
@@ -38,13 +38,13 @@ namespace Cory.TowerGame.Shop
         // mouse down event
         public void OnPointerDown(PointerEventData eventData)
         {
-            isDragging = true;
+            previewInstance = Instantiate(towerData.TowerPreview);
         }
 
         // mouse off event
         public void OnPointerUp(PointerEventData eventData)
         {
-            if (!isDragging) { return; }
+            if (!previewInstance) { return; }
 
             // otherwise do a raycast
             Ray ray = mainCamera.ScreenPointToRay(Input.mousePosition);
@@ -62,7 +62,7 @@ namespace Cory.TowerGame.Shop
                     }
                 }
             }
-            isDragging = false;
+            Destroy(previewInstance.gameObject);
         }
     }
 }

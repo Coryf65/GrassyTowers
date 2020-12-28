@@ -15,7 +15,9 @@ MonoBehaviour:
   name: Basic Tower
   price: 50
   dps: 20
-  range: 10
+  range: 5
   icon: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+  previewPrefab: {fileID: 2701220270647173993, guid: 65c4c97c589c36f4bbc271b4ad1f5d2d,
+    type: 3}
   towerPrefab: {fileID: -6879202151027811673, guid: a5a550fc55ccfbf4c99da64334163a62,
     type: 3}

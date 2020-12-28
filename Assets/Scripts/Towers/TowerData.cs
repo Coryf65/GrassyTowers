@@ -12,6 +12,7 @@ namespace Cory.TowerGame.Towers
         [SerializeField] private float dps = 10f;
         [SerializeField] private float range = 5f;
         [SerializeField] private Sprite icon = null;
+        [SerializeField] private TowerPreview previewPrefab = null;
         [SerializeField] private Tower towerPrefab = null;
 
         public string Name => name;
@@ -19,6 +20,7 @@ namespace Cory.TowerGame.Towers
         public float Dps => dps;
         public float Range => range;
         public Sprite Icon => icon;
+        public TowerPreview TowerPreview => previewPrefab;
         public Tower TowerPrefab => towerPrefab;
     }
 }
