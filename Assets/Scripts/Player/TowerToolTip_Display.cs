@@ -46,5 +46,14 @@ namespace Cory.TowerGame.Player
         {
             tooltipDisplay.SetActive(false);
         }
+
+        public void Sell()
+        {
+            towerShop.Sell(towerHolder.Tower.TowerData);
+
+            towerHolder.RemoveTower();
+
+            tooltipDisplay.SetActive(false);
+        }
     }
 }

@@ -55,5 +55,12 @@ namespace Cory.TowerGame.Shop
 
             OnMoneyChanged?.Invoke(money);
         }
+
+        public void Sell(TowerData towerData)
+        {
+            money += towerData.Price;
+
+            OnMoneyChanged?.Invoke(money);
+        }
     }
 }
