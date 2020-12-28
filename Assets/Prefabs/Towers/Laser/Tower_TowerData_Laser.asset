@@ -17,5 +17,7 @@ MonoBehaviour:
   dps: 30
   range: 10
   icon: {fileID: 21300000, guid: cc27e95868ab32345b74b8338c01ebed, type: 3}
+  previewPrefab: {fileID: 2701220270647173993, guid: d24c627af9c926d49ba007cf6b24d36b,
+    type: 3}
   towerPrefab: {fileID: -6879202151027811673, guid: 5b86fddf2f3377d4c9102e7c459a7dbc,
     type: 3}
