@@ -263,8 +263,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5465934484449577060}
-  - component: {fileID: 2634969422085571528}
-  - component: {fileID: 1232013049670301944}
+  - component: {fileID: 997968040398109639}
   m_Layer: 0
   m_Name: UI_Money
   m_TagString: Untagged
@@ -293,7 +292,7 @@ RectTransform:
   m_AnchoredPosition: {x: 220, y: -25}
   m_SizeDelta: {x: 190, y: 75}
   m_Pivot: {x: 0, y: 1}
---- !u!114 &2634969422085571528
+--- !u!114 &997968040398109639
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -302,24 +301,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 6645872185335646248}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c7116ef7dea3de94c80e92d0e0d97b92, type: 3}
+  m_Script: {fileID: 11500000, guid: e37b83ef583b02348a5e48af5e791867, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 10
---- !u!114 &1232013049670301944
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6645872185335646248}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d828e9dfed462e148bae398560e51c78, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  healthSystem: {fileID: 2634969422085571528}
-  healthText: {fileID: 8623665526808786199}
+  towerShop: {fileID: 4802063932056550847}
+  moneyText: {fileID: 8623665526808786199}
 --- !u!1 &6864885621867179832
 GameObject:
   m_ObjectHideFlags: 0
