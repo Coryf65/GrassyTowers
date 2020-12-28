@@ -1,4 +1,5 @@
-﻿using Cory.TowerGame.Waves;
+﻿using Cory.TowerGame.Player;
+using Cory.TowerGame.Waves;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -16,8 +17,16 @@ namespace Cory.TowerGame.GameState
         private int nextLevelIndex;
         public const string HIGHESTLEVELINDEX = "HighestLevelIndex";
 
-        private void OnEnable() => WaveHandler.OnPlayerWin += HandlerPlayerWin;        
-        private void OnDisable() => WaveHandler.OnPlayerWin -= HandlerPlayerWin;
+        private void OnEnable()
+        {
+            WaveHandler.OnPlayerWin += HandlerPlayerWin;
+            PlayerHealthSystem.OnGameOver += HandlePlayerLose;
+        }
+        private void OnDisable()
+        {
+            WaveHandler.OnPlayerWin -= HandlerPlayerWin;
+            PlayerHealthSystem.OnGameOver -= HandlePlayerLose;
+        }
 
         private void HandlerPlayerWin()
         {
@@ -34,6 +43,28 @@ namespace Cory.TowerGame.GameState
                 PlayerPrefs.SetInt(HIGHESTLEVELINDEX, levelIndexValue);
             }
             nextLevelIndex = levelIndexValue + 1; // try to go to the next level
+        }
+
+        private void HandlePlayerLose()
+        {
+            // Pause the game
+            Time.timeScale = 0f;
+
+            playerGameOverPanel.SetActive(true);
+        }
+
+        public void Retry()
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+            // reset time
+            Time.timeScale = 1f;
+        }
+
+        public void GoToMainMenu()
+        {
+            SceneManager.LoadScene("Scene_MainMenu");
+
+            Time.timeScale = 1f;
         }
 
         public void GoToNextLevel()

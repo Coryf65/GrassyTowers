@@ -31,7 +31,7 @@ namespace Cory.TowerGame.Player
 
             OnHealthChanged?.Invoke(health);
 
-            if (health != 0) { return; }
+            if (health > 0) { return; }
             // if health = 0 Game Over!
             OnGameOver?.Invoke();
         }
