@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System;
 using UnityEngine;
 
 namespace Cory.TowerGame.Towers
@@ -8,6 +7,7 @@ namespace Cory.TowerGame.Towers
     {
         [SerializeField] private TowerData towerData = null;
 
+        public static event Action<TowerHolder> OnTowerSelected;
         private TowerHolder towerHolder;
 
         public TowerData TowerData => towerData;
@@ -15,6 +15,11 @@ namespace Cory.TowerGame.Towers
         public void Initialise(TowerHolder towerHolder)
         {
             this.towerHolder = towerHolder;
-        } 
+        }
+
+        private void OnMouseDown()
+        {
+            OnTowerSelected?.Invoke(towerHolder);
+        }
     }
 }
