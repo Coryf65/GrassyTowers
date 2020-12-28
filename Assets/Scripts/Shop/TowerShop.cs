@@ -1,4 +1,5 @@
-﻿using Cory.TowerGame.Towers;
+﻿using Cory.TowerGame.Enemies;
+using Cory.TowerGame.Towers;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -16,8 +17,7 @@ namespace Cory.TowerGame.Shop
         [SerializeField] private TowerData[] towerDatas = new TowerData[0];
 
         public event Action<int> OnMoneyChanged;
-
-        public int Money => money;
+        public int Money => money;        
 
         private void Start()
         {
@@ -28,6 +28,32 @@ namespace Cory.TowerGame.Shop
                 // init it
                 towerShopButtonInstance.Initalise(towerData, this);
             }
+        }
+
+        private void OnEnable()
+        {
+            Enemy.OnKilled += HandleEnemyKilled;
+        }
+
+        private void OnDisable()
+        {
+            Enemy.OnKilled -= HandleEnemyKilled;
+        }
+
+        // Get money when an enemy is killed
+        private void HandleEnemyKilled(EnemyData enemyData)
+        {
+            money += enemyData.MoneyReward;
+
+            OnMoneyChanged?.Invoke(money);
+        }
+
+        // Player is purchasing a Tower
+        public void Purchase(int amountToSpend)
+        {
+            money -= amountToSpend;
+
+            OnMoneyChanged?.Invoke(money);
         }
     }
 }

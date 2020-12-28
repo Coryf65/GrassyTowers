@@ -31,13 +31,14 @@ namespace Cory.TowerGame.Shop
             // cache these
             this.towerData = towerData;
             this.towerShop = towerShop;
-
-
         }
 
         // mouse down event
         public void OnPointerDown(PointerEventData eventData)
         {
+            // checking if they can afford before preview
+            if (towerShop.Money < towerData.Price) { return; }
+
             previewInstance = Instantiate(towerData.TowerPreview);
         }
 
@@ -59,6 +60,7 @@ namespace Cory.TowerGame.Shop
                         towerHolder.SetTower(towerData);
 
                         // Buy tower, spend monies
+                        towerShop.Purchase(towerData.Price);
                     }
                 }
             }
